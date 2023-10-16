@@ -11,3 +11,4 @@ class Drinks(models.Model):
     measurements = ArrayField(models.Charfield(max_length=100))
     instructions = models.Textfield(max_length=250)
     
+    
