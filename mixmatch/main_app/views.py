@@ -17,9 +17,9 @@ def drinks_index(request):
 
 # Drink detail view
 
-# def drink_detail(request, drink_id):
-#     drink = Drink.objects.get(id=drink_id)
-#     return render(request, 'drinks/details.html', {'drink': drink})
+def drink_detail(request, drink_id):
+    drink = Drink.objects.get(id=drink_id)
+    return render(request, 'drinks/details.html', {'drink': drink})
 
 # Create Drink view
 
