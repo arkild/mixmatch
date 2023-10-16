@@ -11,14 +11,15 @@ def about(request):
     return render(request, 'about.html')
 
 # Drink index route
-# def drinks_index(request):
-    # return render(request, 'drinks/index.html', {'drinks': drinks})
+def drinks_index(request):
+    drinks = Drink.objects.all()
+    return render(request, 'drinks/index.html', {'drinks': drinks})
 
 # Drink detail view
 
-# def drink_detail(request, drink_id):
-#     drink = Drink.objects.get(id=drink_id)
-#     return render(request, 'drinks/details.html', {'drink': drink})
+def drink_detail(request, drink_id):
+    drink = Drink.objects.get(id=drink_id)
+    return render(request, 'drinks/details.html', {'drink': drink})
 
 # Create Drink view
 
