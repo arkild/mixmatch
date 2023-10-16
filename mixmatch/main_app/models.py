@@ -61,18 +61,18 @@ class Drink(models.Model):
     instructions = models.Textfield(max_length=250)
     category = models.CharField(max_length=100, choices=CATEGORIES, default=CATEGORIES[0][0])
     glass = models.CharField(max_length=100, choices=GLASSES)
-    reviews =  models.ForeignKey(Review, on_delete=models.CASCADE)
+    # reviews =  models.ForeignKey(Review, on_delete=models.CASCADE)
     # image = 
     def __str__(self):
         return self.name
     
     
-class Review(models.Model):
+# class Review(models.Model):
     
 
 
 
-class User(models.Model):
+# class User(models.Model):
     
     
     
