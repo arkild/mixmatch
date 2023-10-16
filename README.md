@@ -5,10 +5,10 @@ This is a collaborative 3-person group project involving the development of a fu
 ## Route Table
 | URL                                     | Rest Route | HTTP Verb | CRUD Action | Views                        | Routes Tested | Created Yet |
 |-----------------------------------------|------------|-----------|-------------|------------------------------|---------------|-------------|
-| /                                       | Show       | Get       |             | home.html                    | **YES**       | NO          |
-| /about                                  | Show       | Get       |             | about.html                   | **YES**       | NO          |
-| /drinks                                 | index      | Get       | Read        | drinks/index.html            | **YES**       | NO          |
-| /drinks/drink_id                        | show       | Get       | Read        | drinks/details.html          | **YES**       | NO          |
+| /                                       | Show       | Get       |             | home.html                    | **YES**       | **YES**     |
+| /about                                  | Show       | Get       |             | about.html                   | **YES**       | **YES**     |
+| /drinks                                 | index      | Get       | Read        | drinks/index.html            | **YES**       | **YES**     |
+| /drinks/drink_id                        | show       | Get       | Read        | drinks/details.html          | **YES**       | **YES**     |
 | /drinks/create                          | New        | Get       |             | main_app/drink_form.html     | pending       | NO          |
 | /drinks/drink_id                        | create     | Post      | Create      | drinks/details.html          | pending       | NO          |
 | /drinks/drink_id/update                 | Edit       | Get       | Read        | main_app/drink_form.html     | pending       | NO          |
