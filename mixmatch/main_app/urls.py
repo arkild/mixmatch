@@ -7,10 +7,6 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name ='about'),
-<<<<<<< HEAD
-    path('drinks/', views.drinks_index, name='index'),
-    # The rest are class based views - I'll do them later
-=======
     # path('drinks/', views.drinks_index, name='index'),
     # path('drinks/<int:drink_id>/', views.drink_detail, name='details'),
     # path('drinks/create/', views.DrinkCreate.as_view(), name='drinks_create'),
@@ -18,5 +14,4 @@ urlpatterns = [
     # path('drinks/<int:pk>/delete', views.DrinkDelete.as_view(), name='drinks_delete'),
     
     # Still need Reviews to be added for routes later
->>>>>>> cfb76078db05962975092a69e4a38cdbf98b2b2f
 ]

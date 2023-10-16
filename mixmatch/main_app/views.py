@@ -10,11 +10,6 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-<<<<<<< HEAD
-def drinks_index(request):
-    # drinks index is a more complicated route
-    return render(request, 'drinks/index.html', {'drinks': drinks})
-=======
 # Drink index route
 # def drinks_index(request):
     # return render(request, 'drinks/index.html', {'drinks': drinks})
@@ -42,4 +37,3 @@ def drinks_index(request):
 # class DrinkDelete(DeleteView):
 #     model = Drink
 #     success_url = '/drinks'
->>>>>>> cfb76078db05962975092a69e4a38cdbf98b2b2f
