@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Drink
+from .forms import ReviewForm
 
 # Create your views here.
 def home(request):
@@ -38,3 +39,16 @@ def drink_detail(request, drink_id):
 # class DrinkDelete(DeleteView):
 #     model = Drink
 #     success_url = '/drinks'
+
+# REVIEW VIEWS
+
+# add a review
+# def add_review(request, drink_id):
+#     form = ReviewForm(request.POST)
+#     # Validate the form
+#     if form.is_valid():
+#         # Don't save the form to the database until it has the ID assigned
+#         new_review = form.save(commit=False)
+#         new_review.drink_id = drink_id
+#         new_review.save()
+#     return redirect('detail', drink_id = drink_id)

@@ -14,4 +14,5 @@ urlpatterns = [
     # path('drinks/<int:pk>/delete', views.DrinkDelete.as_view(), name='drinks_delete'),
     
     # Still need Reviews to be added for routes later
+    # path('drinks/<int:drink_id>/add_review/', views.add_review, name='add_review'),
 ]
