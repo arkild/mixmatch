@@ -17,26 +17,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
+  <header class="left navbar-fixed N/A transparent">
+    <nav class="N/A transparent">
+        <ul>
+            <li><a href="/"><img class="logo" src="" alt=""/>MixMATCH</a></li>
+        </ul>
+    <div class="right nav-wrapper N/A transparent">
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'index' %}">Drinks</a></li>
-            <li><a href="{% url 'drink_create' %}">Add</a></li>
         </ul>
-        <ul class="right">
-          <li><a href="/about">About</a></li>
-        </ul>
-      </div>
+    </div>
     </nav>
   </header>
   <main class="container">
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
+  <footer class="page-footer grey darken-4">
     <div class="right"> &copy;&nbsp;</div>
   </footer>
    
