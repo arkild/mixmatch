@@ -56,9 +56,9 @@ class Drink(models.Model):
     name = models.CharField(max_length=100)
     # Found a Field for listing items.
     # https://docs.djangoproject.com/en/4.2/ref/contrib/postgres/fields/
-    ingredients = ArrayField(models.Charfield(max_length=100))
-    measurements = ArrayField(models.Charfield(max_length=100))
-    instructions = models.Textfield(max_length=250)
+    ingredients = ArrayField(models.CharField(max_length=100))
+    measurements = ArrayField(models.CharField(max_length=100))
+    instructions = models.TextField(max_length=250)
     category = models.CharField(max_length=100, choices=CATEGORIES, default=CATEGORIES[0][0])
     glass = models.CharField(max_length=100, choices=GLASSES)
     # reviews =  models.ForeignKey(Review, on_delete=models.CASCADE)
