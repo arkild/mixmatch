@@ -42,7 +42,7 @@ def drink_detail(request, drink_id):
 
 # REVIEW VIEWS
 
-# add a review
+# Add a review
 # def add_review(request, drink_id):
 #     form = ReviewForm(request.POST)
 #     # Validate the form
@@ -52,3 +52,13 @@ def drink_detail(request, drink_id):
 #         new_review.drink_id = drink_id
 #         new_review.save()
 #     return redirect('detail', drink_id = drink_id)
+
+# Edit a Review - We're using a similar form to drink edits for this
+# class ReviewUpdate(UpdateView):
+#     model = Review
+#     fields = '__all__' # Edit this line with what fields need to be updated
+
+# Delete Review
+# class ReviewDelete(DeleteView):
+#     model = Review
+#     success_url = '/drinks'
