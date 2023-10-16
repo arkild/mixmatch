@@ -65,7 +65,8 @@ class Drink(models.Model):
     # image = 
     def __str__(self):
         return self.name
-    
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'drink_id': self.id})
     
 # class Review(models.Model):
     
