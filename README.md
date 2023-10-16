@@ -5,8 +5,8 @@ This is a collaborative 3-person group project involving the development of a fu
 ## Route Table
 | URL                                     | Rest Route | HTTP Verb | CRUD Action | Views                        | Routes Tested | Created Yet |
 |-----------------------------------------|------------|-----------|-------------|------------------------------|---------------|-------------|
-| /                                       | Show       | Get       |             | home.html                    | NO            | NO          |
-| /about                                  | Show       | Get       |             | about.html                   | NO            | NO          |
+| /                                       | Show       | Get       |             | home.html                    | **YES**       | NO          |
+| /about                                  | Show       | Get       |             | about.html                   | **YES**       | NO          |
 | /drinks                                 | index      | Get       | Read        | drinks/index.html            | NO            | NO          |
 | /drinks/drink_id                        | show       | Get       | Read        | drinks/details.html          | NO            | NO          |
 | /drinks/create                          | New        | Get       |             | main_app/drink_form.html     | NO            | NO          |
