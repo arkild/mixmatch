@@ -1,4 +1,5 @@
 body {
+    background-color: black;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -12,4 +13,6 @@ body {
     padding-top: 0;
     text-align: right;
   }
-  
+.homeIntroText {
+    background: rgba(0,0,0,0.3);
+} 
