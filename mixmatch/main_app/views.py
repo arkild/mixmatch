@@ -7,6 +7,6 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-# def drinks_index(request):
+def drinks_index(request):
     # drinks index is a more complicated route
-    # return render(request, 'drinks/index.html', {'drinks': drinks})
+    return render(request, 'drinks/index.html', {'drinks': drinks})
