@@ -9,14 +9,14 @@ This is a collaborative 3-person group project involving the development of a fu
 | /about                                  | Show       | Get       |             | about.html                   | **YES**       | **YES**     |
 | /drinks                                 | index      | Get       | Read        | drinks/index.html            | **YES**       | **YES**     |
 | /drinks/drink_id                        | show       | Get       | Read        | drinks/details.html          | **YES**       | **YES**     |
-| /drinks/create                          | New        | Get       |             | main_app/drink_form.html     | pending       | NO          |
+| /drinks/create                          | New        | Get       |             | main_app/drink_form.html     | pending       | **YES**     |
 | /drinks/drink_id                        | create     | Post      | Create      | drinks/details.html          | pending       | NO          |
 | /drinks/drink_id/update                 | Edit       | Get       | Read        | main_app/drink_form.html     | pending       | NO          |
-| /drinks/drink_id                        | Update     | Patch/Put | Update      | main_app/details.html        | pending       | NO          |
-| /drinks/drink_id/delete                 | Show       | Get       |             | main_app/drinkcon_delete.html| NO            | NO          |
+| /drinks/drink_id                        | Update     | Patch/Put | Update      | main_app/details.html        | pending       | **YES**     |
+| /drinks/drink_id/delete                 | Show       | Get       |             | main_app/drink_confirm_delete.html| NO            | NO          |
 | /drinks                                 | Destroy    | Delete    | Delete      | drinks/index.html            | pending       | NO          |
 | (reviews on same page) /drinks/drink_id | Create     | Post      | Create      | main_app/details.html        | pending       | NO          |
 | /drinks/review_id/update                | Edit       | Get       | Read        | main_app/review_form.html    | NO            | NO          |
 | /drinks/drinks_id                       | Update     | Patch/Put | Update      | main_app/details.html        | NO            | NO          |
-| /drinks/review_id/delete                | Show       | Get       |             | main_app/revcon_delete.html  | NO            | NO          |
+| /drinks/review_id/delete                | Show       | Get       |             | main_app/review_confirm_delete.html  | NO            | NO          |
 | /drinks/drinks_id                       | Destroy    | Delete    | Delete      | main_app/details.html        | NO            | NO          |
