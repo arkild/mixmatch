@@ -24,4 +24,15 @@
       </div>
     </div>
 
+   <!-- Add review form same page -->
+
+   <div class="col s6">
+    <!-- add the action attribute as follows -->
+        <form action="{% url 'add_review' drink.id %}" method="POST">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <input type="submit" class="btn" value="Add Review">
+        </form>
+    </div>
+
 {% endblock %}
