@@ -38,9 +38,9 @@ class DrinkUpdate(UpdateView):
     
 # Delete Drink view 
 
-# class DrinkDelete(DeleteView):
-#     model = Drink
-#     success_url = '/drinks'
+class DrinkDelete(DeleteView):
+    model = Drink
+    success_url = '/drinks'
 
 # REVIEW VIEWS
 
