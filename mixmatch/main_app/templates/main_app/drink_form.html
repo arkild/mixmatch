@@ -2,6 +2,23 @@
 
 {% block content %}
 
-<h3>Drink Form</h3>
+<body class="indexBody grey darken-2">
+    {% if object %}
+    <h3 class="white-text">Edit<span class='grey-text'>{{ object.name }}</span></h3>
+    {% else %}
+    <h3 class="white-text">Add a Drink</h3>
+    {% endif %}
+    
+    <!-- Leaving the action empty makes the form post to the same url used to display it -->
+    <form action="" method="POST">
+    <!-- Django requires the following for security purposes -->
+    {% csrf_token %}
+    <table>
+    <!-- Render the inputs inside of <tr>s & <td>s -->
+        {{ form.as_p }}    
+    </table>
+    <input type="submit" value="Submit" class="grey lighten-5 black-text btn">
+    </form>
+    </body>
 
 {% endblock %}

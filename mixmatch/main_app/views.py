@@ -24,16 +24,18 @@ def drink_detail(request, drink_id):
 
 # Create Drink view
 
-# class DrinkCreate(CreateView):
-#     model = Drink
-#     fields = '__all__' #as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
+class DrinkCreate(CreateView):
+    model = Drink
+    fields = '__all__' # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
+    success_url = '/drinks'
 
 # Update Drink view
 
-# class DrinkUpdate(UpdateView):
-#     model = Drink
-#     fields = '__all__' #Winston can change the fields to what he wants edited
-
+class DrinkUpdate(UpdateView):
+    model = Drink
+    fields = '__all__' #Winston can change the fields to what he wants edited
+    success_url = '/drinks'
+    
 # Delete Drink view 
 
 # class DrinkDelete(DeleteView):
