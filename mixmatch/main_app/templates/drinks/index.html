@@ -2,6 +2,30 @@
 
 {% block content %}
 
-<h3>Drink Index</h3>
+<body class="indexBody grey darken-2">
+  
 
+    <h4 class="indexH3 white-text">Drinks</h4>
+
+
+
+{% for drink in drinks %}
+
+<a href="{% url 'details' drink.id %}">
+
+  <div class="center-align card">
+    <div class="center-align card-content grey darken-3 white-text">
+      <span class="detail card-title">{{ drink.name }}</span>
+      <p class="detail">Ingredients: {{ drink.ingredients }}</p>
+      <p class="detail">Measurements: {{ drink.measurements }}</p>
+      <p class="detail">Category: {{ drink.category }}</p>
+      <p class="detail">Glass: {{ drink.glass }}</p>
+    </div>
+  </div>
+</a>
+<p class="center-align">
+    <a href="{% url 'details' drink.id %}"class="center-align waves-effect grey lighten-5 btn black-text">Detail</a>
+</p>
+{% endfor %}
+</body>
 {% endblock %}
