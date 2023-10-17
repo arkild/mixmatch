@@ -11,12 +11,14 @@
       <span class="detail card-title">{{ drink.name }}</span>
       <p class="detail">Ingredients: {{ drink.ingredients }}</p>
       <p class="detail">Measurements: {{ drink.measurements }}</p>
+      <p class="detail">instructions: {{ drink.instructions }}</p>
       <p class="detail">Category: {{ drink.category }}</p>
       <p class="detail">Glass: {{ drink.glass }}</p>
     </div>
 
       <!-- Add update and delete -->
       <div class="card-action">
+       
         <a href="{% url 'drinks_update' drink.id %}">Edit</a>
         <a href="{% url 'drinks_delete' drink.id %}">Delete</a>
       </div>

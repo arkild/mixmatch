@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Drink, Review
-from .forms import ReviewForm
+# from .models import Review
+from .forms import ReviewForm, DrinkForm
 
 # Create your views here.
 def home(request):
@@ -26,15 +27,15 @@ def drink_detail(request, drink_id):
 
 class DrinkCreate(CreateView):
     model = Drink
-    fields = '__all__' # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
-    success_url = '/drinks'
+    form_class = DrinkForm # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
+    # success_url = '/drinks'
 
 # Update Drink view
 
 class DrinkUpdate(UpdateView):
     model = Drink
     fields = '__all__' #Winston can change the fields to what he wants edited
-    success_url = '/drinks'
+    # success_url = '/drinks'
     
 # Delete Drink view 
 
@@ -54,13 +55,13 @@ class DrinkDelete(DeleteView):
 #         new_review.drink_id = drink_id
 #         new_review.save()
 #     return redirect('detail', drink_id = drink_id)
-
-# Edit a Review - We're using a similar form to drink edits for this
+    
+# # Edit a Review - We're using a similar form to drink edits for this
 # class ReviewUpdate(UpdateView):
 #     model = Review
 #     fields = '__all__' # Edit this line with what fields need to be updated
 
-# Delete Review
+# # Delete Review
 # class ReviewDelete(DeleteView):
 #     model = Review
 #     success_url = '/drinks'
