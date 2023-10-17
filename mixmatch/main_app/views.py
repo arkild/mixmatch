@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .models import Drink
+from .models import Drink, Review
 # from .models import Review
 from .forms import ReviewForm, DrinkForm
 
