@@ -13,5 +13,9 @@ urlpatterns = [
     path('drinks/<int:pk>/update', views.DrinkUpdate.as_view(), name='drinks_update'),
     path('drinks/<int:pk>/delete', views.DrinkDelete.as_view(), name='drinks_delete'),
     
-    # Still need Reviews to be added for routes later
+    # These review URLs are spitballed - they may need to be adjusted accordingly with how we want our pages to format.
+    # Right now, updating and deleting reviews will call for a separate page, and adding reviews can be done on the same page as the drink, but if we want this to change, we have to change these accordingly. 
+    # path('drinks/<int:drink_id>/add_review/', views.add_review, name='add_review'),
+    # path('drinks/<int:review_id>/update_review/', views.ReviewUpdate.as_view(), name="review_update"),
+    # path('drinks/<int:review_id>/delete_review/', views.ReviewDelete.as_view(), name="review_delete"),
 ]
