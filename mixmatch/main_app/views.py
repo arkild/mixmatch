@@ -20,7 +20,9 @@ def drinks_index(request):
 
 def drink_detail(request, drink_id):
     drink = Drink.objects.get(id=drink_id)
-    return render(request, 'drinks/details.html', {'drink': drink})
+    reviews = Review.objects.all()
+    review_form = ReviewForm()
+    return render(request, 'drinks/details.html', {'drink': drink,"review_form": review_form, "reviews": reviews})
 
 # Create Drink view
 
@@ -53,7 +55,7 @@ def add_review(request, drink_id):
         new_review = form.save(commit=False)
         new_review.drink_id = drink_id
         new_review.save()
-    return redirect('details', drink_id = drink_id)
+    return redirect('details', drink_id=drink_id)
     
 # Edit a Review - We're using a similar form to drink edits for this
 class ReviewUpdate(UpdateView):
@@ -64,3 +66,4 @@ class ReviewUpdate(UpdateView):
 class ReviewDelete(DeleteView):
     model = Review
     success_url = '/drinks'
+

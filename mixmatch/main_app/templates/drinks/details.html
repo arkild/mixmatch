@@ -4,35 +4,55 @@
 
 <body class="indexBody grey darken-2">
     <h4 class="white-text">Drink Details</h4>
-
+<div class="row">
   <div class="card col s6">
     <div class="card-content grey darken-3 white-text">
      
       <span class="detail card-title">{{ drink.name }}</span>
       <p class="detail">Ingredients: {{ drink.ingredients }}</p>
       <p class="detail">Measurements: {{ drink.measurements }}</p>
-      <p class="detail">instructions: {{ drink.instructions }}</p>
+      <p class="detail">Instructions: {{ drink.instructions }}</p>
       <p class="detail">Category: {{ drink.category }}</p>
       <p class="detail">Glass: {{ drink.glass }}</p>
     </div>
 
       <!-- Add update and delete -->
       <div class="card-action">
-       
         <a href="{% url 'drinks_update' drink.id %}">Edit</a>
         <a href="{% url 'drinks_delete' drink.id %}">Delete</a>
       </div>
     </div>
-
-   <!-- Add review form same page -->
-
+</div>
+<!-- Display reviews -->
+<div class="row">
+  <div class="card col s6">
+    <h5>Reviews:</h5>
+    {% for review in reviews %}
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ review.title }}</span>
+            <p>{{ review.description }}</p>
+        </div>
+        <div class="card-action">
+            <a href="{% url 'review_update' review.id %}">Edit</a>
+            <a href="{% url 'review_delete' review.id %}">Delete</a>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+   <!-- Add review form on the same page -->
    <div class="col s6">
     <!-- add the action attribute as follows -->
-        <form action="{% url 'add_review' drink.id %}" method="POST">
+        <form action="{% url 'add_review' drink.id %}"method="POST">
         {% csrf_token %}
         {{ review_form.as_p }}
         <input type="submit" class="btn" value="Add Review">
         </form>
     </div>
-
+</body>
+<script>
+  const selectEl = document.getElementById('id_review');
+  M.FormSelect.init(selectEl);
+</script>   
 {% endblock %}
