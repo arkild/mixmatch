@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.postgres.fields import ArrayField
+from django.contrib.auth.models import User
 # Create your models here.
 
 CATEGORIES = (
@@ -61,6 +62,7 @@ class Drink(models.Model):
     instructions = models.TextField(max_length=350)
     category = models.CharField(max_length=100, choices=CATEGORIES, default=CATEGORIES[0][0])
     glass = models.CharField(max_length=100, choices=GLASSES)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     # Unsure whether or not its required on the class
     # reviews =  models.ForeignKey(Review)
     # image = 
@@ -79,6 +81,7 @@ class Review(models.Model):
     def get_absolute_url(self):
         return reverse('details', kwargs={'drink_id': self.drink.id})
     
+
 
 
 
