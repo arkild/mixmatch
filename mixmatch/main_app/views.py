@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Drink, Review
-# from .models import Review
 from .forms import ReviewForm, DrinkForm
 
 # Create your views here.
@@ -21,7 +20,9 @@ def drinks_index(request):
 
 def drink_detail(request, drink_id):
     drink = Drink.objects.get(id=drink_id)
-    return render(request, 'drinks/details.html', {'drink': drink})
+    reviews = Review.objects.all()
+    review_form = ReviewForm()
+    return render(request, 'drinks/details.html', {'drink': drink,"review_form": review_form, "reviews": reviews})
 
 # Create Drink view
 
@@ -46,22 +47,23 @@ class DrinkDelete(DeleteView):
 # REVIEW VIEWS
 
 # Add a review
-# def add_review(request, drink_id):
-#     form = ReviewForm(request.POST)
-#     # Validate the form
-#     if form.is_valid():
-#         # Don't save the form to the database until it has the ID assigned
-#         new_review = form.save(commit=False)
-#         new_review.drink_id = drink_id
-#         new_review.save()
-#     return redirect('detail', drink_id = drink_id)
+def add_review(request, drink_id):
+    form = ReviewForm(request.POST)
+    # Validate the form
+    if form.is_valid():
+        # Don't save the form to the database until it has the ID assigned
+        new_review = form.save(commit=False)
+        new_review.drink_id = drink_id
+        new_review.save()
+    return redirect('details', drink_id=drink_id)
     
-# # Edit a Review - We're using a similar form to drink edits for this
-# class ReviewUpdate(UpdateView):
-#     model = Review
-#     fields = '__all__' # Edit this line with what fields need to be updated
+# Edit a Review - We're using a similar form to drink edits for this
+class ReviewUpdate(UpdateView):
+    model = Review
+    fields = '__all__' # Edit this line with what fields need to be updated
 
-# # Delete Review
-# class ReviewDelete(DeleteView):
-#     model = Review
-#     success_url = '/drinks'
+# Delete Review
+class ReviewDelete(DeleteView):
+    model = Review
+    success_url = '/drinks'
+
