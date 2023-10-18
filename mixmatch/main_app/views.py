@@ -24,6 +24,7 @@ def drink_detail(request, drink_id):
     review_form = ReviewForm()
     return render(request, 'drinks/details.html', {'drink': drink,"review_form": review_form, "reviews": reviews})
 
+
 # Create Drink view
 
 class DrinkCreate(CreateView):
