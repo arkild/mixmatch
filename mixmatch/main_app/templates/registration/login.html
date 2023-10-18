@@ -1,0 +1,16 @@
+Let's put a bit of markup in login.html so that we can see that things are working:
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h4>Log In</h4>
+
+<!-- Log-in form  -->
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn">Log In</button>
+  </form>
+
+{% endblock %}
