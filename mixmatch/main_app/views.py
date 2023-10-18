@@ -29,6 +29,7 @@ def drink_detail(request, drink_id):
 
 # Create Drink view
 # class DrinkCreate(LoginRequiredMixin, CreateView):
+# When commenting in the line above, DELETE THIS LINE BELOW
 class DrinkCreate(CreateView):
     model = Drink
     form_class = DrinkForm # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
@@ -42,6 +43,7 @@ class DrinkCreate(CreateView):
 
 # Update Drink view
 # class DrinkUpdate(LoginRequiredMixin, UpdateView):
+# When commenting in the line above, DELETE THIS LINE BELOW
 class DrinkUpdate(UpdateView):
     model = Drink
     fields = '__all__' #Winston can change the fields to what he wants edited
@@ -49,6 +51,7 @@ class DrinkUpdate(UpdateView):
     
 # Delete Drink view 
 # class DrinkDelete(LoginRequiredMixin, DeleteView):
+# When commenting in the line above, DELETE THIS LINE BELOW
 class DrinkDelete(DeleteView):
     model = Drink
     success_url = '/drinks'
@@ -69,12 +72,14 @@ def add_review(request, drink_id):
     
 # Edit a Review - We're using a similar form to drink edits for this
 # class ReviewUpdate(LoginRequiredMixin, UpdateView):
+# When commenting in the line above, DELETE THIS LINE BELOW
 class ReviewUpdate(UpdateView):
     model = Review
     fields = '__all__' # Edit this line with what fields need to be updated
 
 # Delete Review
 # class ReviewDelete(LoginRequiredMixin, DeleteView):
+# When commenting in the line above, DELETE THIS LINE BELOW
 class ReviewDelete(DeleteView):
     model = Review
     success_url = '/drinks'
