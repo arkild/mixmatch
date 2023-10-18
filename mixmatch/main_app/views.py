@@ -87,7 +87,7 @@ class ReviewDelete(LoginRequiredMixin, DeleteView):
 
 def signup(request):
     error_message = ''
-    if request.method == 'post':
+    if request.method == 'POST':
         #This will use the data from the browser to create a user
         form = UserCreationForm(request.POST)
         if form.is_valid():
