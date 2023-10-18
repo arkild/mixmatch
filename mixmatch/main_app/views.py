@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Drink, Review
 from .forms import ReviewForm, DrinkForm
@@ -20,7 +21,6 @@ def drinks_index(request):
     return render(request, 'drinks/index.html', {'drinks': drinks})
 
 # Drink detail view
-
 def drink_detail(request, drink_id):
     drink = Drink.objects.get(id=drink_id)
     reviews = Review.objects.all()
@@ -28,7 +28,7 @@ def drink_detail(request, drink_id):
     return render(request, 'drinks/details.html', {'drink': drink,"review_form": review_form, "reviews": reviews})
 
 # Create Drink view
-# @login_required
+# class DrinkCreate(LoginRequiredMixin, CreateView):
 class DrinkCreate(CreateView):
     model = Drink
     form_class = DrinkForm # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
@@ -41,14 +41,14 @@ class DrinkCreate(CreateView):
         return super().form_valid(form)
 
 # Update Drink view
-# @login_required
+# class DrinkUpdate(LoginRequiredMixin, UpdateView):
 class DrinkUpdate(UpdateView):
     model = Drink
     fields = '__all__' #Winston can change the fields to what he wants edited
     # success_url = '/drinks'
     
 # Delete Drink view 
-# @login_required
+# class DrinkDelete(LoginRequiredMixin, DeleteView):
 class DrinkDelete(DeleteView):
     model = Drink
     success_url = '/drinks'
@@ -68,13 +68,13 @@ def add_review(request, drink_id):
     return redirect('details', drink_id=drink_id)
     
 # Edit a Review - We're using a similar form to drink edits for this
-# @login_required
+# class ReviewUpdate(LoginRequiredMixin, UpdateView):
 class ReviewUpdate(UpdateView):
     model = Review
     fields = '__all__' # Edit this line with what fields need to be updated
 
 # Delete Review
-# @login_required
+# class ReviewDelete(LoginRequiredMixin, DeleteView):
 class ReviewDelete(DeleteView):
     model = Review
     success_url = '/drinks'
