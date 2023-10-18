@@ -13,6 +13,9 @@ body {
     padding-top: 0;
     text-align: right;
   }
-.homeIntroText {
+  .homeIntroText {
     background: rgba(0,0,0,0.3);
-} 
+  } 
+  .reviewUpdate, p {
+    color: white !important;
+  }

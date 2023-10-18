@@ -1,25 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<body class="indexBody grey darken-2">
-    {% if object %}
-    <h3 class="white-text">Edit<span class='grey-text'>{{ object.name }}</span></h3>
-    {% else %}
-    <h3 class="white-text">Review a Drink</h3>
-    {% endif %}
-    
-    <!-- Leaving the action empty makes the form post to the same url used to display it -->
-    <form action="" method="POST">
-    <!-- Django requires the following for security purposes -->
-    {% csrf_token %}
-    <table>
-    <!-- Render the inputs inside of <tr>s & <td>s -->
-        {{ form.as_p }}  
-        
-    </table>
-    <input type="submit" value="Submit" class="grey lighten-5 black-text btn">
-    </form>
-    </body>
-
+<body class="grey darken-2">
+    <div class="col s6">
+        {% if object %}
+            <h4 class="white-text">Edit <span class='grey-text'>{{ review.title }}</span></h4>
+        {% else %}
+            <h3 class="white-text">Add a Review</h3>
+        {% endif %}
+        <!-- add the action attribute as follows -->
+            <form class="white-text" action="{% url 'review_update' review.id %}"method="POST">
+            {% csrf_token %}
+                    <table class="white-text">
+                        <p class="reviewUpdate white-text">{{ form.as_p }}</p>
+                    </table>
+                <input type="submit" class="btn" value="Edit Review">
+            </form>
+    </div>
+</body>
 {% endblock %}
