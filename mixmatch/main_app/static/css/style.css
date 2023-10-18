@@ -16,6 +16,3 @@ body {
   .homeIntroText {
     background: rgba(0,0,0,0.3);
   } 
-  .reviewUpdate, p {
-    color: white !important;
-  }
