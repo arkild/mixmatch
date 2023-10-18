@@ -29,9 +29,9 @@ def drink_detail(request, drink_id):
 
 
 # Create Drink view
-# class DrinkCreate(LoginRequiredMixin, CreateView):
+class DrinkCreate(LoginRequiredMixin, CreateView):
 # When commenting in the line above, DELETE THIS LINE BELOW
-class DrinkCreate(CreateView):
+# class DrinkCreate(CreateView):
     model = Drink
     form_class = DrinkForm # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
     # success_url = '/drinks'
@@ -43,24 +43,24 @@ class DrinkCreate(CreateView):
         return super().form_valid(form)
 
 # Update Drink view
-# class DrinkUpdate(LoginRequiredMixin, UpdateView):
+class DrinkUpdate(LoginRequiredMixin, UpdateView):
 # When commenting in the line above, DELETE THIS LINE BELOW
-class DrinkUpdate(UpdateView):
+# class DrinkUpdate(UpdateView):
     model = Drink
     fields = '__all__' #Winston can change the fields to what he wants edited
     # success_url = '/drinks'
     
 # Delete Drink view 
-# class DrinkDelete(LoginRequiredMixin, DeleteView):
+class DrinkDelete(LoginRequiredMixin, DeleteView):
 # When commenting in the line above, DELETE THIS LINE BELOW
-class DrinkDelete(DeleteView):
+# class DrinkDelete(DeleteView):
     model = Drink
     success_url = '/drinks'
 
 # REVIEW VIEWS
 
 # Add a review
-# @login_required
+@login_required
 def add_review(request, drink_id):
     form = ReviewForm(request.POST)
     # Validate the form
@@ -72,16 +72,16 @@ def add_review(request, drink_id):
     return redirect('details', drink_id=drink_id)
     
 # Edit a Review - We're using a similar form to drink edits for this
-# class ReviewUpdate(LoginRequiredMixin, UpdateView):
+class ReviewUpdate(LoginRequiredMixin, UpdateView):
 # When commenting in the line above, DELETE THIS LINE BELOW
-class ReviewUpdate(UpdateView):
+# class ReviewUpdate(UpdateView):
     model = Review
     fields = '__all__' # Edit this line with what fields need to be updated
 
 # Delete Review
-# class ReviewDelete(LoginRequiredMixin, DeleteView):
+class ReviewDelete(LoginRequiredMixin, DeleteView):
 # When commenting in the line above, DELETE THIS LINE BELOW
-class ReviewDelete(DeleteView):
+# class ReviewDelete(DeleteView):
     model = Review
     success_url = '/drinks'
 
@@ -104,7 +104,7 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 # This will render a page that refers only to the user's created drinks
-# @login_required
-# def user_drinks(request):
-#     drinks = Drink.objects.filter(user=request.user)
-#     return render(request, 'user/index.html', { 'drinks': drinks})git 
+@login_required
+def user_drinks(request):
+    drinks = Drink.objects.filter(user=request.user)
+    return render(request, 'user/index.html', { 'drinks': drinks})
