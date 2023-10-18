@@ -18,5 +18,8 @@ This is a collaborative 3-person group project involving the development of a fu
 | (reviews on same page) /drinks/drink_id | Create     | Post      | Create      | main_app/details.html        | **YES**       | **YES**     |
 | /drinks/review_id/update                | Edit       | Get       | Read        | main_app/review_form.html    | **YES**       | **YES**     |
 | /drinks/drinks_id                       | Update     | Patch/Put | Update      | main_app/details.html        | **YES**       | **YES**     |
-| /drinks/review_id/delete                | Show       | Get       |             | main_app/review_confirm_delete.html  |**YES**| **YES**     |
+| /drinks/review_id/delete                | Show       | Get       |             | main_app/review_confirm_delete.html|  **YES**| **YES**     |
 | /drinks/drinks_id                       | Destroy    | Delete    | Delete      | main_app/details.html        | **YES**       | **YES**     |
+| /registration/login                     | N/A        | N/A       | N/A         | registration/login.html      | No            | No          |
+| /accounts/signup                        | N/A        | N/A       | N/A         | registration/signup.html     | No            | No          |
+| /user/index (tentative name)            | N/A        | N/A       | N/A         | user/index.html              | No            | No          |
