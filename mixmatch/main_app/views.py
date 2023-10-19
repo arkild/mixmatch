@@ -1,12 +1,18 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+# Make sure you import Drink
+from .models import Drink, Review, Photo
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
-from .models import Drink, Review
 from .forms import ReviewForm, DrinkForm
+# INSTALL This: pip3 install boto3
+import boto3
+import uuid
+import os
+
 
 # Create your views here.
 def home(request):
@@ -84,6 +90,31 @@ class ReviewDelete(LoginRequiredMixin, DeleteView):
 # class ReviewDelete(DeleteView):
     model = Review
     success_url = '/drinks'
+
+
+
+    #Add photo view 
+    #This would normally be a login required situation but you can only add photos on the Create Drink page
+def add_photo(request, drink_id):
+    #photo-file will be the "name" attribute on the <input type="file">
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        #need a unique "key" for S3 / needs image file extension too
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        # Just in case something goes wrong
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            #build the full url string
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            # we can assign to drink_id or drink (if you have a drink object)
+            Photo.objects.create(url=url, drink_id=drink_id)
+        except Exception as e:
+            print('An error occured uploading file to S3')
+            print(e)
+    return redirect('details', drink_id=drink_id)
+            
 
 def signup(request):
     error_message = ''
