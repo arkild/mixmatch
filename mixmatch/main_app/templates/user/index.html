@@ -2,12 +2,7 @@
 
 {% block content %}
 
-<body class="">
-  
-
-    <h4 class="">Drinks</h4>
-
-
+<h4>User Index Page</h4>
 
 {% for drink in drinks %}
 
@@ -27,5 +22,5 @@
     <a href="{% url 'details' drink.id %}"class="">Detail</a>
 </p>
 {% endfor %}
-</body>
+
 {% endblock %}
