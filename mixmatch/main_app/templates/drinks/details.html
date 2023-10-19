@@ -3,49 +3,55 @@
 {% block content %}
 
 <body class="">
-    <h4 class="">Drink Details</h4>
+    <h5 class="">Drink Details</h5>
 <div class="row">
   <div class="">
     <div class="">
-     
-      <span class="">{{ drink.name }}</span>
-      <h4 class="">Recipe</h4>
-
-      <!-- Cite resource for listing items in array Django: https://docs.djangoproject.com/en/4.2/ref/templates/language/ -->
-    <ul>
-      {% for i in drink.ingredients %}
-       <li>{{ i }} </li>
-      {% endfor %}
-      {% for m in drink.measurements %}
-      <li>{{ m }} </li> 
-      {% endfor %}
-    </ul>
-    <!-- <ul>-->
-        <!-- {% for ingredient in drink.ingredients %}-->
-        <!-- <li> {{ forloop.counter0 }} {{ drink.measurements }} : {{ drink.ingredients }}</li>-->
-        <!-- {% endfor %}-->
-    <!-- </ul> -->
-    <!-- {% for i in drink.ingredients %}
-    {% for m in drink.measurements %}
-        <div>{{ forloop.counter0.i }}.&nbsp;{{ m }}</div>
-    {% endfor %}
-    {% endfor %} -->
-
-      <p class="">Instructions: {{ drink.instructions }}</p>
-      <p class="">Category: {{ drink.category }}</p>
-      <p class="">Glass: {{ drink.glass }}</p>
-    </div>
-
-      <!-- Add update and delete -->
-      <div class="">
-        <a href="{% url 'drinks_update' drink.id %}">Edit</a>
-        <a href="{% url 'drinks_delete' drink.id %}">Delete</a>
-      </div>
+        <br>
+      <h3 class="">{{ drink.name }}</h3>
+        <br>
+        {% for image in drink.image_set.all %}    
+            <img class="card card-img-top-detail img-responsive" src="{{ drink.image.url }}" width="" height="">
+        {% empty %}
+            <div class="card card-img-top justify-text-center bg-light" style="height: 18rem; width: 27rem">No Image Uploaded</div>
+        {% endfor %}
+        <br>
+        <h4 class="">Recipe</h4>
+        <!-- Cite resource for listing items in array Django: https://docs.djangoproject.com/en/4.2/ref/templates/language/ -->
+        <!-- Cite resourec for bootstrap layout to show 2 divs side by side: https://coder-coder.com/display-divs-side-by-side/#:~:text=To%20position%20the%20divs%20side,%2C%20each%20at%2050%25%20width. -->
+        <br>
+        <div class="card float-container">
+            <div class="dr-detail-msrmt">
+                <ul>
+                    {% for m in drink.measurements %}
+                    <li style="list-style-type: none;">{{ m }} : </li>
+                    {% endfor %}
+                </ul>    
+            </div>
+            <div class="dr-detail-ingr">
+                <ul>
+                    {% for i in drink.ingredients %}
+                    <li style="list-style-type: none;">{{ i }}</li>
+                    {% endfor %}
+                </ul>    
+            </div>
+        </div>
+        <br>
+        <p class="">Instructions: {{ drink.instructions }}</p>
+        <p class="">Category: {{ drink.category }}</p>
+        <p class="">Glass: {{ drink.glass }}</p>
+        </div>
+        <!-- Add update and delete -->
+        <div class="">
+            <a href="{% url 'drinks_update' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Edit</a>
+            <a href="{% url 'drinks_delete' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</a>
+        </div>
     </div>
 </div>
 <!-- Display reviews -->
 <div class="">
   <div class="">
+    <br><br><br><br>
     <h5>Reviews:</h5>
     {% for review in drink.review_set.all %}
     <div class="">
@@ -54,8 +60,8 @@
             <p class="">{{ review.description }}</p>
         </div>
         <div class="">
-            <a href="{% url 'review_update' review.id %}">Edit</a>
-            <a href="{% url 'review_delete' review.id %}">Delete</a>
+            <a href="{% url 'review_update' review.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Edit</a>
+            <a href="{% url 'review_delete' review.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</a>
           </div>
         </div>
     {% empty %}
@@ -64,36 +70,34 @@
     </div>
 </div>
    <!-- Add review form on the same page -->
-   <div class="col s6">
+   <div class="">
     <!-- add the action attribute as follows -->
+    <br><br>
+    <h5>Add a New Review:</h5>
+    <!-- Style Django form with bootstrap: https://www.youtube.com/watch?v=6-XXvUENY_8 -->
+    <table>
         <form action="{% url 'add_review' drink.id %}" method="POST">
         {% csrf_token %}
-        {{ review_form.as_p }}
-        <input type="submit" class="btn" value="Add Review">
+        {{ review_form.as_table }}
         </form>
+    </table>    
+        <input type="submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" value="Add Review">
     </div>
-</body>
-<!-- THIS WAS ADDED PER MATERIALIZE TO GET DROPDOWN -->
-<!-- <script>
-  const selectEl = document.getElementById('id_review');
-  M.FormSelect.init(selectEl);
-</script>   
-
 </div>
+<br><br>
+    <!-- Insert photo markup below this comment -->
+    {% for photo in drink.photo_set.all %}
+    <img class="responsive-img card-panel" src="{{photo.url}}">
+    {% empty %}
+    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %}
+    {% comment %} This allows the file to be uploaded {% endcomment %}
+    <form action="{% url 'add_photo' drink.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+        {% csrf_token %}
+        <input type="file" name="photo-file">
+        <br><br>
+        <a href="" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Upload Photo</a>
+    </form>
 
-
-
-<!-- Insert photo markup below this comment -->
-{% for photo in drink.photo_set.all %}
-  <img class="responsive-img card-panel" src="{{photo.url}}">
-{% empty %}
-  <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-{% endfor %}
-{% comment %} This allows the file to be uploaded {% endcomment %}
-<form action="{% url 'add_photo' drink.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-  {% csrf_token %}
-  <input type="file" name="photo-file">
-  <br><br>
-  <button type="submit" class="btn">Upload Photo</button>
-</form>
+</body>  
 {% endblock %}
