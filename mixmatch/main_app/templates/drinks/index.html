@@ -7,25 +7,30 @@
 
     <h4 class="">Drinks</h4>
 
+    <div class="row">
+        {% for drink in drinks %}
+        <!-- Adding CSS to wrap the content. Source Scott Draper, Pokedex project -->
+        <!-- Additional source for wraping flex content: https://stackoverflow.com/questions/42893235/enclosing-for-loop-in-django-around-bootstrap-html-tags -->
+            <div class="card dr-index col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem;">
+                <div class="">
+                {% for image in drink.image_set.all %}    
+                    <img class="card-img-top img-responsive" src="{{ drink.image.url }}" width="" height="">
+                {% empty %}
+                    <div class="card-img-top justify-text-center bg-light" style="height: 11.25rem;">No Image Uploaded</div>
+                {% endfor %}    
+                    <h4 class="card-title">{{ drink.name }}</h4>
+                    <div class="dr-index-ingr card-text">
+                        <p>{% for i in drink.ingredients %}
+                         {{ i }}, 
+                        {% endfor %}</p>
+                    </div>
+                    <p class="card-text">Category: {{ drink.category }}</p>
+                </div>
+                <a href="{% url 'details' drink.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-font-size: .75rem;">Detail</a>
 
-
-{% for drink in drinks %}
-
-<a href="{% url 'details' drink.id %}">
-
-  <div class="">
-    <div class="">
-      <span class="">{{ drink.name }}</span>
-      <p class="">Ingredients: {{ drink.ingredients }}</p>
-      <p class="">Measurements: {{ drink.measurements }}</p>
-      <p class="">Category: {{ drink.category }}</p>
-      <p class="">Glass: {{ drink.glass }}</p>
+            </div>
+            <br>
+        {% endfor %}
     </div>
-  </div>
-</a>
-<p class="">
-    <a href="{% url 'details' drink.id %}"class="">Detail</a>
-</p>
-{% endfor %}
 </body>
 {% endblock %}
