@@ -122,6 +122,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# This will allow us to specify where we want the login to redirect to
+LOGIN_REDIRECT_URL = '/drinks/' #If we have a specific user page, we'll want to redirect this to that later.
+LOGOUT_REDIRECT_URL = '/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

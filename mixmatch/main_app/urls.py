@@ -20,4 +20,7 @@ urlpatterns = [
     path('drinks/<int:pk>/delete/', views.ReviewDelete.as_view(), name="review_delete"),
     # Photo add path
     path('drinks/<int:drink_id>/add_photo/', views.add_photo, name='add_photo')
+    # This path below is specifically for creating an account
+    path('accounts/signup/', views.signup, name='signup'),
+    path('user/index/', views.user_drinks, name="user_index")
 ]
