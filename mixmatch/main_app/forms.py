@@ -11,3 +11,4 @@ class DrinkForm(ModelForm):
     class Meta:
         model = Drink
         fields = ['name', 'ingredients', 'measurements', 'instructions', 'category', 'glass'] 
+        
