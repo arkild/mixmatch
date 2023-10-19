@@ -1,14 +1,23 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-  
-  main {
-    flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+/* || ** BASE.HTML ** || */
+
+.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
+
+/* || ** HOME.HTML ** || */
+.home {
+  position: relative;
+  display: block;
+  padding-top: 30%;
+  margin: auto;
+}
+
+
+/* || ** ABOUT.HTML ** || */
+.about {
+  position: relative;
+  display: block;
+  padding: 10%;
+  margin: auto;
+}
