@@ -3,14 +3,14 @@
 {% block content %}
 <body>
     
-    <!-- <body class="" style="background-image: url('https://i.postimg.cc/brvgDSwj/ross-sneddon-Vuidt9-WUq-Rk-unsplash.jpg'); background-size: cover; background-position: center;"></body> -->
-    <br><br><br><br><br><br><br><br>
-    <div class="row">
+    <body class="" style="background-image: url('https://i.postimg.cc/brvgDSwj/ross-sneddon-Vuidt9-WUq-Rk-unsplash.jpg'); background-size: cover; background-position: center;"></body>
+
+    <div class="home">
         <h5 class="">Unlock Your Mixology Potential:</h5>
         <h5 class="">Elevate Your Drinking Experience</h5>
+        <button type="button" class="btn btn-outline-info btn-sm">
+            <a href="{% url 'index' %}" class="btn btn-sm">Enter</a>
+        </button>
     </div>
-    <p class="">
-        <a href="{% url 'index' %}"class="btn">Enter</a>
-    </p>
 </body>
 {% endblock %}
