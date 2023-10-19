@@ -11,7 +11,7 @@
         {% for drink in drinks %}
         <!-- Adding CSS to wrap the content. Source Scott Draper, Pokedex project -->
         <!-- Additional source for wraping flex content: https://stackoverflow.com/questions/42893235/enclosing-for-loop-in-django-around-bootstrap-html-tags -->
-            <div class="card dr-index col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem;">
+            <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem;">
                 <div class="">
                 {% for image in drink.image_set.all %}    
                     <img class="card-img-top img-responsive" src="{{ drink.image.url }}" width="" height="">
