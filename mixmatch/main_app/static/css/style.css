@@ -1,18 +1,56 @@
-body {
-    background-color: black;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-  
-  main {
-    flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
-  .homeIntroText {
-    background: rgba(0,0,0,0.3);
-  } 
+/* || ** BASE.HTML ** || */
+
+.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
+
+/* || ** HOME.HTML ** || */
+.home {
+  position: relative;
+  display: block;
+  padding-top: 30%;
+  margin: auto;
+}
+
+
+/* || ** ABOUT.HTML ** || */
+.about {
+  position: relative;
+  display: block;
+  padding: 10%;
+  margin: auto;
+}
+
+/* || ** DRINK/INDEX.HTML ** || */
+/* This wraps the content */
+.dr-index {
+  flex-wrap: wrap;
+  text-align: center;
+}
+.dr-index-ingr {
+  display: inline-block;
+  flex-wrap: wrap;
+}
+.card-img-top {
+  max-height: 11.25rem;
+}
+
+/* || ** DRINK/DETAIL.HTML ** || */ 
+.float-container {
+  display: inline-block;
+  border: 3px solid #fff;
+  padding: 20px;
+}
+.dr-detail-msrmt {
+  position: relative;
+  float: left;
+  padding: 20px 0;
+  list-style-type: none;
+}
+.dr-detail-ingr {
+  position: relative;
+  float: right;
+  padding: 20px;
+  list-style-type: none;
+}

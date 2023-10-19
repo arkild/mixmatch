@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # '' = "starts with" path
     path('', include('main_app.urls')),
+    # Django has built-in authentication URLs
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

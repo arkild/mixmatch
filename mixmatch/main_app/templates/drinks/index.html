@@ -2,30 +2,35 @@
 
 {% block content %}
 
-<body class="indexBody grey darken-2">
+<body class="">
   
 
-    <h4 class="indexH3 white-text">Drinks</h4>
+    <h4 class="">Drinks</h4>
 
+    <div class="row">
+        {% for drink in drinks %}
+        <!-- Adding CSS to wrap the content. Source Scott Draper, Pokedex project -->
+        <!-- Additional source for wraping flex content: https://stackoverflow.com/questions/42893235/enclosing-for-loop-in-django-around-bootstrap-html-tags -->
+            <div class="card dr-index col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem;">
+                <div class="">
+                {% for image in drink.image_set.all %}    
+                    <img class="card-img-top img-responsive" src="{{ drink.image.url }}" width="" height="">
+                {% empty %}
+                    <div class="card-img-top justify-text-center bg-light" style="height: 11.25rem;">No Image Uploaded</div>
+                {% endfor %}    
+                    <h4 class="card-title">{{ drink.name }}</h4>
+                    <div class="dr-index-ingr card-text">
+                        <p>{% for i in drink.ingredients %}
+                         {{ i }}, 
+                        {% endfor %}</p>
+                    </div>
+                    <p class="card-text">Category: {{ drink.category }}</p>
+                </div>
+                <a href="{% url 'details' drink.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-font-size: .75rem;">Detail</a>
 
-
-{% for drink in drinks %}
-
-<a href="{% url 'details' drink.id %}">
-
-  <div class="center-align card">
-    <div class="center-align card-content grey darken-3 white-text">
-      <span class="detail card-title">{{ drink.name }}</span>
-      <p class="detail">Ingredients: {{ drink.ingredients }}</p>
-      <p class="detail">Measurements: {{ drink.measurements }}</p>
-      <p class="detail">Category: {{ drink.category }}</p>
-      <p class="detail">Glass: {{ drink.glass }}</p>
+            </div>
+            <br>
+        {% endfor %}
     </div>
-  </div>
-</a>
-<p class="center-align">
-    <a href="{% url 'details' drink.id %}"class="center-align waves-effect grey lighten-5 btn black-text">Detail</a>
-</p>
-{% endfor %}
 </body>
 {% endblock %}

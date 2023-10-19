@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h4>User Index Page</h4>
+
+{% for drink in drinks %}
+
+<a href="{% url 'details' drink.id %}">
+
+  <div class="">
+    <div class="">
+      <span class="">{{ drink.name }}</span>
+      <p class="">Ingredients: {{ drink.ingredients }}</p>
+      <p class="">Measurements: {{ drink.measurements }}</p>
+      <p class="">Category: {{ drink.category }}</p>
+      <p class="">Glass: {{ drink.glass }}</p>
+    </div>
+  </div>
+</a>
+<p class="">
+    <a href="{% url 'details' drink.id %}"class="">Detail</a>
+</p>
+{% endfor %}
+
+{% endblock %}
