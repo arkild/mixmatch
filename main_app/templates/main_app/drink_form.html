@@ -9,6 +9,13 @@
     <h3 class="">Add a Drink</h3>
     {% endif %}
     <div class="card float-container">
+        {% comment %} This allows the file to be uploaded {% endcomment %}
+        <form action="{% url 'add_photo' drink.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+            {% csrf_token %}
+            <input type="file" name="photo-file">
+            <br><br>
+            <a href="" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Upload Photo</a>
+        </form>
         <table>
         <!-- Leaving the action empty makes the form post to the same url used to display it -->
             <form class="" action="" method="POST">
