@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponseForbidden
+from django.urls import reverse
 from django.views.generic.list import ListView
+
 
 # Make sure you import Drink
 from .models import Drink, Review, Photo
@@ -54,8 +57,15 @@ class DrinkUpdate(LoginRequiredMixin, UpdateView):
 # When commenting in the line above, DELETE THIS LINE BELOW
 # class DrinkUpdate(UpdateView):
     model = Drink
-    fields = '__all__' #Winston can change the fields to what he wants edited
-    # success_url = '/drinks'
+    fields = 'name', 'ingredients', 'measurements', 'instructions', 'category', 'glass' #Winston can change the fields to what he wants edited
+    # success_url = '/drinks
+    # 
+    def form_valid(self,form):
+        # Assign to the logged in user
+        if form.instance.user != self.request.user: # form.instance is the drink
+            return HttpResponseForbidden("you no likey")
+        #This then does what the CreateView normally does
+        return super().form_valid(form)
     
 # Delete Drink view 
 class DrinkDelete(LoginRequiredMixin, DeleteView):
@@ -63,6 +73,10 @@ class DrinkDelete(LoginRequiredMixin, DeleteView):
 # class DrinkDelete(DeleteView):
     model = Drink
     success_url = '/drinks'
+    
+    
+       
+        
 
 # REVIEW VIEWS
 
