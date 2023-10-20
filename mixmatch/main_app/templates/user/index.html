@@ -39,5 +39,14 @@
         {% endfor %}
        {% endif %} 
     </div>
+</div>
+</a>
+<p class="">
+    <a href="{% url 'details' drink.id %}"class="">Detail</a>
+    <a href="{% url 'drinks_update' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Edit</a>
+    <a href="{% url 'drinks_delete' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</a>
+</p>
+{% endfor %}
+
 </body>
 {% endblock %}
