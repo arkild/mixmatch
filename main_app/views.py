@@ -134,7 +134,7 @@ def signup(request):
 @login_required
 def user_drinks(request):
     drinks = Drink.objects.filter(user=request.user)
-    return render(request, 'user/index.html', { 'drinks': drinks})
+    return render(request, 'user/index.html', { 'drinks': drinks })
 
 # class SearchView(ListView):
 #     # Pulls from the drink model

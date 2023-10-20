@@ -9,13 +9,13 @@
             <h3 class="">Add a Review</h3>
         {% endif %}
         <!-- add the action attribute as follows -->
-            <form class="" action="{% url 'review_update' review.id %}"method="POST">
-            {% csrf_token %}
-                    <table class="">
-                        <p class="">{{ form.as_p }}</p>
-                    </table>
-                <input type="submit" class="btn" value="Edit Review">
-            </form>
+        <form class="" action="{% url 'review_update' review.id %}"method="POST">
+        {% csrf_token %}
+                <table class="">
+                    <p class="">{{ form.as_p }}</p>
+                </table>
+            <input type="submit" class="btn" value="Edit Review">
+        </form>
     </div>
 </body>
 {% endblock %}

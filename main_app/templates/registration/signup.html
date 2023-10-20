@@ -12,12 +12,12 @@
         <form method="POST" action="{% url 'signup' %}">
           {% csrf_token %}
           {{ form.as_table }}
+          <div class="button">
+            <input type="submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" value="Sign Up">
+          </div>
         </form>
       </table>
       <br>
-      <div class="button">
-        <input type="submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" value="Sign Up">
-      </div>
     </div>
 </body>
 {% endblock %}
