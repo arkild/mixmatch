@@ -36,8 +36,6 @@
                     <a href="{% url 'details' drink.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-font-size: .75rem;">Detail</a>
                 </div>
             </div>
-        {% endfor %}
-       {% endif %} 
     </div>
 </div>
 </a>
@@ -47,6 +45,7 @@
     <a href="{% url 'drinks_delete' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</a>
 </p>
 {% endfor %}
+{% endif %}
 
 </body>
 {% endblock %}
