@@ -44,6 +44,7 @@ main {
   text-align: center;
 }
 .crdTitle {
+  height: 5rem;
   text-overflow: hidden ellipsis;
 }
 .dr-index-ingr {
@@ -51,7 +52,8 @@ main {
   flex-wrap: wrap;
 }
 .card-img-top {
-  max-width: 18rem;
+  max-width: 16rem;
+  max-height: 16rem;
 }
 /* Adjust image files to fill but not streatch */
 .cover {
@@ -95,6 +97,3 @@ main {
 }
 
 /* || ** DRINK/DETAIL.HTML ** || */
-#id_username, tr {
-  border: grey solid;
-}
