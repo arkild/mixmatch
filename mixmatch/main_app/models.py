@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.postgres.fields import ArrayField
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
 # Create your models here.
 
 CATEGORIES = (
@@ -71,7 +71,7 @@ class Drink(models.Model):
         return self.name
     def get_absolute_url(self):
         return reverse('details', kwargs={'drink_id': self.id})
-    
+         
 class Review(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=500)

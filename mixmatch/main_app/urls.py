@@ -22,5 +22,7 @@ urlpatterns = [
     path('drinks/<int:drink_id>/add_photo/', views.add_photo, name='add_photo'),
     # This path below is specifically for creating an account
     path('accounts/signup/', views.signup, name='signup'),
-    path('user/index/', views.user_drinks, name="user_index")
+    path('user/index/', views.user_drinks, name="user_index"),
+    #Search Path
+    # path('results/', views.SearchView.as_view(), name='search'),
 ]
