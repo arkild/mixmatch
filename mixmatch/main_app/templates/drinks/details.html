@@ -3,9 +3,11 @@
 {% block content %}
 
 <body class="">
-    <h5 class="">Drink Details</h5>
+    <br><br>
+    <h4 class="">Drink Details</h4>
+    <br>
 <div class="row">
-  <div class="">
+  <div class="card float-container">
     <div class="">
         <br>
       <h3 class="">{{ drink.name }}</h3>
@@ -13,14 +15,14 @@
         {% for image in drink.image_set.all %}    
             <img class="card card-img-top-detail img-responsive" src="{{ drink.image.url }}" width="" height="">
         {% empty %}
-            <div class="card card-img-top justify-text-center bg-light" style="height: 18rem; width: 27rem">No Image Uploaded</div>
+            <div class="card card-img-top-detail bg-light" style="height: 18rem; width: 27rem">No Image Uploaded</div>
         {% endfor %}
         <br>
         <h4 class="">Recipe</h4>
         <!-- Cite resource for listing items in array Django: https://docs.djangoproject.com/en/4.2/ref/templates/language/ -->
         <!-- Cite resourec for bootstrap layout to show 2 divs side by side: https://coder-coder.com/display-divs-side-by-side/#:~:text=To%20position%20the%20divs%20side,%2C%20each%20at%2050%25%20width. -->
         <br>
-        <div class="card float-container">
+        <div class="card recipe-float-container">
             <div class="dr-detail-msrmt">
                 <ul>
                     {% for m in drink.measurements %}
@@ -49,28 +51,34 @@
     </div>
 </div>
 <!-- Display reviews -->
-<div class="">
+<br><br>
+<!-- Start review card -->
+<div class="card float-container">
   <div class="">
-    <br><br><br><br>
     <h5>Reviews:</h5>
     {% for review in drink.review_set.all %}
     <div class="">
         <div class="">
             <span class="">{{ review.title }}</span>
-            <p class="">{{ review.description }}</p>
+            <div>
+                <p class="">{{ review.description }}</p>
+            </div>
         </div>
-        <div class="">
+        <div class="edit-delete">
             <a href="{% url 'review_update' review.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Edit</a>
             <a href="{% url 'review_delete' review.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</a>
-          </div>
+        </div>
         </div>
     {% empty %}
         <p class="">No reviews posted yet</p>
     {% endfor %}
     </div>
+<!-- End card card  -->
 </div>
+<br><br>
    <!-- Add review form on the same page -->
-   <div class="">
+   <!-- Add review card -->
+   <div class="card float-container">
     <!-- add the action attribute as follows -->
     <br><br>
     <h5>Add a New Review:</h5>
@@ -80,8 +88,11 @@
         {% csrf_token %}
         {{ review_form.as_table }}
         </form>
-    </table>    
-        <input type="submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" value="Add Review">
+    </table>
+    <br>
+        <div class="button">   
+            <input type="submit" class="btn btn-outline-success" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" value="Add Review">
+        </div> 
     </div>
 </div>
 <br><br>
@@ -100,5 +111,5 @@
     </form>
 
 </body> 
- 
+
 {% endblock %}

@@ -8,23 +8,22 @@
     {% else %}
     <h3 class="">Add a Drink</h3>
     {% endif %}
-    
-    <!-- Leaving the action empty makes the form post to the same url used to display it -->
-    <form class="" action="" method="POST">
-    <!-- Django requires the following for security purposes -->
-    {% csrf_token %}
+    <div class="card float-container">
         <table>
-            {{ form.as_p }}
-        </table>
-    <input type="submit" value="Submit" class="btn">
-    </form>
-    <!-- THIS WAS ADDED PER MATERIALIZE TO GET DROPDOWN -->
-      <!-- <script> 
-        const categoryEl = document.getElementById('id_category');
-        M.FormSelect.init(categoryEl);
-        const glassEl = document.getElementById('id_glass');
-        M.FormSelect.init(glassEl);
-      </script> -->
+        <!-- Leaving the action empty makes the form post to the same url used to display it -->
+            <form class="" action="" method="POST">
+            <!-- Django requires the following for security purposes -->
+                {% csrf_token %}
+                    <table>
+                        {{ form.as_p}}
+                    </table>
+                    <br><br>
+                <div class="button">
+                    <input type="submit" value="Submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                </div>    
+            </form>
+        </table>    
+    </div>
     </body>
 
 {% endblock %}
