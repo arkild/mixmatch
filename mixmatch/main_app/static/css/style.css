@@ -1,8 +1,24 @@
-/* || ** BASE.HTML ** || */
+* {
+  margin: 0;
+}
 
-.page-footer {
-  padding-top: 0;
-  text-align: right;
+/* || ** BASE.HTML ** || */
+/* Cite example: https://getbootstrap.com/docs/4.0/examples/sticky-footer/ */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex-grow: 1;
+}
+.foot {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+  width: 100vw;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 40px; /* Vertically center the text there */
 }
 
 /* || ** HOME.HTML ** || */
@@ -13,12 +29,11 @@
   margin: auto;
 }
 
-
 /* || ** ABOUT.HTML ** || */
 .about {
   position: relative;
   display: block;
-  padding: 10%;
+  padding: 10% 10% 0 10%;
   margin: auto;
 }
 
@@ -27,6 +42,9 @@
 .dr-index {
   flex-wrap: wrap;
   text-align: center;
+}
+.crdTitle {
+  text-overflow: hidden ellipsis;
 }
 .dr-index-ingr {
   display: inline-block;
@@ -38,19 +56,40 @@
 
 /* || ** DRINK/DETAIL.HTML ** || */ 
 .float-container {
+  text-align: center;
+  margin: auto;
+  max-width: 900px;
+  border: 3px solid #fff;
+  padding: 20px;
+}
+.card-img-top-detail {
+  margin: auto;
+  justify-content: center;
+}
+.recipe-float-container {
   display: inline-block;
   border: 3px solid #fff;
   padding: 20px;
 }
 .dr-detail-msrmt {
   position: relative;
+  text-align: right;
   float: left;
   padding: 20px 0;
   list-style-type: none;
 }
 .dr-detail-ingr {
   position: relative;
+  text-align: left;
   float: right;
   padding: 20px;
   list-style-type: none;
+}
+#discription {
+  height: 20px;
+}
+
+/* || ** DRINK/DETAIL.HTML ** || */
+#id_username, tr {
+  border: grey solid;
 }
