@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'mixmatch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',
+        'NAME': 'mixmatchdb3',
         'USER': 'arkild',
         'PASSWORD': os.environ['DB_PASSWORD'],
         'HOST': 'ep-sparkling-water-69230493.us-west-2.aws.neon.tech',
