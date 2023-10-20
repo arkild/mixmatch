@@ -39,7 +39,7 @@ This is a collaborative 3-person group project involving the development of a fu
 
 ## Getting started
 
-Our project can be accessed by clicking THIS LINK (which doesn't exist right now until deployment)
+Our project can be accessed by clicking [this link.](https://mixmatch-e776a4b93538.herokuapp.com/)
 
 ## Upcoming Future Enhancements
 
