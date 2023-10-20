@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+<br><br> 
+<h4>Log In</h4>
+<br>
+  <div class="card float-container text-left">
+  <!-- Log-in form  -->
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}">
+      <div class="button">
+        <button type="submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Log In</button>
+      </div>
+    </form>
+  </div>  
+{% endblock %}

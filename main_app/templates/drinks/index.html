@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body class="">
+<br><br>
+    <h4 class="">Drinks</h4>
+    <br>
+    <div class="row">
+        {% for drink in drinks %}
+        <!-- Adding CSS to wrap the content. Source Scott Draper, Pokedex project -->
+        <!-- Additional source for wraping flex content: https://stackoverflow.com/questions/42893235/enclosing-for-loop-in-django-around-bootstrap-html-tags -->
+            <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4 bg-secondary" style="width: 18rem; object-fit: cover;">
+                <div class="card bg-light p-2 black-text">
+                    {% for photo in drink.photo_set.all %}
+                    <img class="card card-img-top img-responsive cover" src="{{photo.url}}" object-fit: cover;>
+                    {% empty %}
+                    <div class="card card-img-top bg-light" style="height: 18rem; width: 27rem">No Photos Uploaded</div>
+                    {% endfor %} 
+                    <div class="crdTitle text-dark">
+                        <h4 class="card-title">{{ drink.name }}</h4>
+                    </div>
+
+                    <p class="card-text text-secondary">Category: {{ drink.category }}</p>
+                </div>
+                <br>
+                <div class="button">
+                    <a href="{% url 'details' drink.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-font-size: .75rem;">Detail</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}

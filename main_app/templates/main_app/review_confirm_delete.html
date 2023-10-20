@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body class="">
+  <h3 class="">delete review</h3>
+
+  <h6 class="">Are you sure you want to delete the review <span class="">{{ object.name }}</span>?</h6>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!" class="btn">
+    <a class="btn" href="{% url 'index' %}">Cancel</a>
+  </form>
+</body>
+{% endblock %}

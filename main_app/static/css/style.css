@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+}
+
+/* || ** BASE.HTML ** || */
+/* Cite example: https://getbootstrap.com/docs/4.0/examples/sticky-footer/ */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex-grow: 1;
+}
+.foot {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+  width: 100vw;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 40px; /* Vertically center the text there */
+}
+
+/* || ** HOME.HTML ** || */
+.home {
+  position: relative;
+  display: block;
+  padding-top: 30%;
+  margin: auto;
+}
+
+/* || ** ABOUT.HTML ** || */
+.about {
+  position: relative;
+  display: block;
+  padding: 10% 10% 0 10%;
+  margin: auto;
+}
+
+/* || ** DRINK/INDEX.HTML ** || */
+/* This wraps the content */
+.dr-index {
+  flex-wrap: wrap;
+  text-align: center;
+}
+.crdTitle {
+  height: 5rem;
+  text-overflow: hidden ellipsis;
+}
+.dr-index-ingr {
+  display: inline-block;
+  flex-wrap: wrap;
+}
+.card-img-top {
+  max-width: 16rem;
+  max-height: 16rem;
+}
+/* Adjust image files to fill but not streatch */
+.cover {
+  object-fit: cover;
+}
+/* || ** DRINK/DETAIL.HTML ** || */ 
+.float-container {
+  text-align: center;
+  margin: auto;
+  max-width: 900px;
+  border: 3px solid #fff;
+  padding: 20px;
+}
+.card-img-top-detail {
+  max-width: 50%;
+  margin: auto;
+  justify-content: center;
+  object-fit: cover;
+}
+.recipe-float-container {
+  display: inline-block;
+  border: 3px solid #fff;
+  padding: 20px;
+}
+.dr-detail-msrmt {
+  position: relative;
+  text-align: right;
+  float: left;
+  padding: 20px 0;
+  list-style-type: none;
+}
+.dr-detail-ingr {
+  position: relative;
+  text-align: left;
+  float: right;
+  padding: 20px;
+  list-style-type: none;
+}
+#discription {
+  height: 20px;
+}
+
+/* || ** DRINK/DETAIL.HTML ** || */
