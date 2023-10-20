@@ -51,9 +51,12 @@ main {
   flex-wrap: wrap;
 }
 .card-img-top {
-  max-height: 11.25rem;
+  max-width: 18rem;
 }
-
+/* Adjust image files to fill but not streatch */
+.cover {
+  object-fit: cover;
+}
 /* || ** DRINK/DETAIL.HTML ** || */ 
 .float-container {
   text-align: center;
@@ -63,8 +66,10 @@ main {
   padding: 20px;
 }
 .card-img-top-detail {
+  max-width: 50%;
   margin: auto;
   justify-content: center;
+  object-fit: cover;
 }
 .recipe-float-container {
   display: inline-block;
