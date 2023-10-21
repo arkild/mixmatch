@@ -42,7 +42,13 @@ class DrinkCreate(LoginRequiredMixin, CreateView):
     model = Drink
     fields = ['name', 'ingredients', 'measurements', 'instructions', 'category', 'glass'] 
     # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
-    success_url = '/drinks'
+    # success_url = '/drinks'
+
+    def form_valid(self, form):
+        # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user  # form.instance is the drink
+        # Let the CreateView do its job as usual
+        return super().form_valid(form)
 
 # Update Drink view
 class DrinkUpdate(LoginRequiredMixin, UpdateView):

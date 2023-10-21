@@ -9,9 +9,9 @@
     <br>
     <p class="red-text">{{ error_message }}</p>
       <table>
-        <form method="POST" action="{% url 'signup' %}">
+        <form action="{% url 'signup' %}" method="POST">
           {% csrf_token %}
-          {{ form.as_table }}
+          {{ form.as_p }}
           <div class="button">
             <input type="submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" value="Sign Up">
           </div>

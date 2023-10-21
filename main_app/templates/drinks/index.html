@@ -15,7 +15,7 @@
                     {% for photo in drink.photo_set.all %}
                     <img class="card card-img-top img-responsive cover" src="{{photo.url}}" object-fit: cover;>
                     {% empty %}
-                    <div class="card card-img-top bg-light" style="height: 18rem; width: 27rem">No Photos Uploaded</div>
+                    <div class="card card-img-top img-responsive cover bg-light" style="height: 16rem; width: 16rem">No Photos Uploaded</div>
                     {% endfor %} 
                     <div class="crdTitle text-dark">
                         <h4 class="card-title">{{ drink.name }}</h4>
