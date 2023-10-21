@@ -17,7 +17,7 @@ urlpatterns = [
     # Right now, updating and deleting reviews will call for a separate page, and adding reviews can be done on the same page as the drink, but if we want this to change, we have to change these accordingly. 
     path('drinks/<int:drink_id>/add_review/', views.add_review, name='add_review'),
     path('reviews/<int:pk>/update/', views.ReviewUpdate.as_view(), name="review_update"),
-    path('drinks/<int:pk>/delete/', views.ReviewDelete.as_view(), name="review_delete"),
+    path('reviews/<int:pk>/delete/', views.ReviewDelete.as_view(), name="review_delete"),
     # Photo add path
     path('drinks/<int:drink_id>/add_photo/', views.add_photo, name='add_photo'),
     # This path below is specifically for creating an account
