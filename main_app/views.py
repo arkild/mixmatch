@@ -40,13 +40,14 @@ class DrinkCreate(LoginRequiredMixin, CreateView):
 # When commenting in the line above, DELETE THIS LINE BELOW
 # class DrinkCreate(CreateView):
     model = Drink
-    form_class = DrinkForm # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
+    fields = ['name', 'ingredients', 'measurements', 'instructions', 'category', 'glass'] 
+    # as of right now, I don't know what fields may need to be worked on - Winston can edit this where appropriate
     # success_url = '/drinks'
-    #Checking when form is valid
-    def form_valid(self,form):
-        # Assign to the logged in user
-        form.instance.user = self.request.user # form.instance is the drink
-        #This then does what the CreateView normally does
+
+    def form_valid(self, form):
+        # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user  # form.instance is the drink
+        # Let the CreateView do its job as usual
         return super().form_valid(form)
 
 # Update Drink view
@@ -54,7 +55,7 @@ class DrinkUpdate(LoginRequiredMixin, UpdateView):
 # When commenting in the line above, DELETE THIS LINE BELOW
 # class DrinkUpdate(UpdateView):
     model = Drink
-    fields = '__all__' #Winston can change the fields to what he wants edited
+    fields = ['name', 'ingredients', 'measurements', 'instructions', 'category', 'glass']  #Winston can change the fields to what he wants edited
     # success_url = '/drinks'
     
 # Delete Drink view 
@@ -139,7 +140,7 @@ def signup(request):
 @login_required
 def user_drinks(request):
     drinks = Drink.objects.filter(user=request.user)
-    return render(request, 'user/index.html', { 'drinks': drinks})
+    return render(request, 'user/index.html', { 'drinks': drinks })
 
 # class SearchView(ListView):
 #     # Pulls from the drink model

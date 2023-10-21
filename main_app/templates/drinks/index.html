@@ -10,24 +10,18 @@
         {% for drink in drinks %}
         <!-- Adding CSS to wrap the content. Source Scott Draper, Pokedex project -->
         <!-- Additional source for wraping flex content: https://stackoverflow.com/questions/42893235/enclosing-for-loop-in-django-around-bootstrap-html-tags -->
-            <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem;">
-                <div class="">
+            <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4 bg-secondary" style="width: 18rem; object-fit: cover;">
+                <div class="card bg-light p-2 black-text">
                     {% for photo in drink.photo_set.all %}
-                    <img class="card card-img-top img-responsive" src="{{photo.url}}">
+                    <img class="card card-img-top img-responsive cover" src="{{photo.url}}" object-fit: cover;>
                     {% empty %}
-                    <div class="card card-img-top bg-light" style="height: 18rem; width: 27rem">No Photos Uploaded</div>
+                    <div class="card card-img-top img-responsive cover bg-light" style="height: 16rem; width: 16rem">No Photos Uploaded</div>
                     {% endfor %} 
-                    <div class="crdTitle">
+                    <div class="crdTitle text-dark">
                         <h4 class="card-title">{{ drink.name }}</h4>
                     </div>
-                    <div class="dr-index-ingr card-text">
-                        <!-- <p class="dr-index-ingr">
-                        {% for i in drink.ingredients %}
-                            {{ i }}, 
-                        {% endfor %}
-                        </p> -->
-                    </div>
-                    <p class="card-text">Category: {{ drink.category }}</p>
+
+                    <p class="card-text text-secondary">Category: {{ drink.category }}</p>
                 </div>
                 <br>
                 <div class="button">
