@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<body class="">
-  
-
+<!-- Photo, Olena Bohovyk, unsplash -->
+<body class="vh-100" style="background-image: url('https://i.postimg.cc/XYkhKCNX/olena-bohovyk-Jj-GLEN7-T8x-I-unsplash.jpg'); background-size: cover; background-position: fixed;">
     <h4 class="">{{ user.name }} Drinks</h4>
 
     <div class="row">
@@ -12,38 +10,32 @@
         {% for drink in drinks %}
         <!-- Adding CSS to wrap the content. Source Scott Draper, Pokedex project -->
         <!-- Additional source for wraping flex content: https://stackoverflow.com/questions/42893235/enclosing-for-loop-in-django-around-bootstrap-html-tags -->
-            <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem;">
-                <div class="">
-                {% for image in drink.image_set.all %}    
-                    <img class="card-img-top img-responsive" src="{{ drink.image.url }}" width="" height="">
-                {% empty %}
-                    <div class="card-img-top justify-text-center bg-light" style="height: 11.25rem;">No Image Uploaded</div>
-                {% endfor %}  
-                    <div class="crdTitle">
-                        <h4 class="card-title">{{ drink.name }}</h4>
-                    </div>
-                    <div class="dr-index-ingr card-text">
-                        <!-- <p class="dr-index-ingr">
-                        {% for i in drink.ingredients %}
-                            {{ i }}, 
-                        {% endfor %}
-                        </p> -->
-                    </div>
-                    <p class="card-text">Category: {{ drink.category }}</p>
+        <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem;">
+            <div class="">
+            {% for image in drink.image_set.all %}    
+                <img class="card-img-top img-responsive" src="{{ drink.image.url }}" width="" height="">
+            {% empty %}
+                <div class="card-img-top justify-text-center bg-light" style="height: 16rem; width: 16rem;">No Image Uploaded</div>
+            {% endfor %}  
+                <div class="crdTitle">
+                    <h4 class="card-title">{{ drink.name }}</h4>
                 </div>
-                <br>
-                <div class="button">
-                    <a href="{% url 'details' drink.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-font-size: .75rem;">Detail</a>
+                <div class="dr-index-ingr card-text">
                 </div>
+                <p class="card-text">Category: {{ drink.category }}</p>
             </div>
+            <br>
+            <div class="button">
+                <a href="{% url 'details' drink.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-font-size: .75rem;">Detail</a>
+                <br><br>
+                <p class="">
+                    <a href="{% url 'drinks_update' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Edit</a>
+                    <a href="{% url 'drinks_delete' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</a>
+                </p>
+            </div>
+        </div>
     </div>
-</div>
-</a>
-<p class="">
-    <a href="{% url 'details' drink.id %}"class="">Detail</a>
-    <a href="{% url 'drinks_update' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Edit</a>
-    <a href="{% url 'drinks_delete' drink.id %}" type="button" class="btn btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</a>
-</p>
+
 {% endfor %}
 {% endif %}
 
