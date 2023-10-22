@@ -22,32 +22,37 @@
 <body>
   <header>
     <!-- Cite resource for styling nav and buttons: https://getbootstrap.com/docs/5.2/components -->
-    <nav class="navbar navbar-expand-md">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-md ml-auto">
+        <div class="container-fluid text-righ">
           <a class="navbar-brand" href="/">
-          <img src="https://i.postimg.cc/XvwZGxkG/mix-Match-Logo-White.png" style="width: 150px">
+            <img src="https://i.postimg.cc/XvwZGxkG/mix-Match-Logo-White.png" style="width: 150px">
           </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse ml-auto" id="navbarToggler">
+                <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" href="{% url 'about' %}">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}">Drinks</a></li>
+                    
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link active" href="{% url 'drinks_create' %}">Add </a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'user_index' %}">My Drinks</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'logout' %}">Log Out</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'search' %}">Search</a></li>
+                    
                 {% else %}
                     <li class="nav-item"><a class="nav-link active" href="{% url 'signup' %}">Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'login' %}">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'search' %}">Search</a></li>
                 {% endif %}
                 </ul>
-                <form class="d-flex" role="search" method="GET" action="{% url 'search' %}">
+                <!-- <form class="d-flex" role="search" method="GET" action="{% url 'search' %}">
                    {% csrf_token %} 
                     <input class="form-control me-2" type="search" placeholder="Search Drinks" aria-label="Search">
                     <button class="btn btn-outline-info" type="submit">Search</button>
-                </form>
+                </form> -->
+
             </div>
         </div>
     </nav>
