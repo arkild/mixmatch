@@ -22,24 +22,29 @@ main {
 }
 
 /* || ** HOME.HTML ** || */
-.home {
-  position: relative;
-  display: block;
-  padding-top: 30%;
+.home, card {
+  max-width: 900px;
+  background-color: rgba(41, 41, 41, 0.5) !important;
   margin: auto;
+  padding: 5%;
+  border-radius: 1rem;
 }
 
 /* || ** ABOUT.HTML ** || */
-.about {
+.about, card {
+  max-width: 900px;
+  background-color: rgba(41, 41, 41, 0.7) !important;
   position: relative;
   display: block;
-  padding: 10% 10% 0 10%;
   margin: auto;
+  padding: 5%;
+  border-radius: 1rem;
 }
 
 /* || ** DRINK/INDEX.HTML ** || */
 /* This wraps the content */
-.dr-index {
+.dr-index, card {
+  background-color: rgba(41, 41, 41, 0.7) !important;
   flex-wrap: wrap;
   text-align: center;
 }
@@ -95,5 +100,7 @@ main {
 #discription {
   height: 20px;
 }
-
 /* || ** DRINK/DETAIL.HTML ** || */
+
+/* || ** SIGNUP.HTML ** || */
+

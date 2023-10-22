@@ -1,17 +1,60 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<body>
-    
-    <body class="vh-100" style="background-image: url('https://i.postimg.cc/brvgDSwj/ross-sneddon-Vuidt9-WUq-Rk-unsplash.jpg'); background-size: cover;"></body>
-
-    <div class="home">
-        <h4 class="">Unlock Your Mixology Potential:</h4>
-        <h5 class="">Elevate Your Drinking Experience</h5>
-        <button type="button" class="btn btn-outline-info btn-sm">
-            <a href="{% url 'index' %}" class="btn btn-sm">Enter</a>
-        </button>
-    </div>
-    <div class="push"></div>
+<!-- Photo, Dave Lastovskiy, unsplash -->
+<body class="vh-100" style="background-image: url('https://i.postimg.cc/vHYP2V6V/sam-hojati-pb7o-Jwt-NVU4-unsplash.jpg'); background-size: cover; background-position: fixed;">
+    <!-- Space div -->
+    <div class="" style="height: 150px;"></div>
+        <!-- Top container div -->
+        <div class="card home p-4">
+            <div class="">
+                <h3 class="">Unlock Your Mixology Potential:</h3>
+                <h5 class="">Elevate Your Drinking Experience</h5>
+                <button type="button" class="btn btn-outline-info btn-sm ">
+                    <a href="{% url 'index' %}" class="btn btn-sm">Enter</a>
+                </button>
+            </div>
+        <!-- End top div -->
+        </div> 
+        <!-- Space div -->
+        <div class="" style="height: 25px;"></div>
+        <!-- Center container div -->
+        <div class="card home border-none bg-dark p-4">
+            <div class="d-flex flex-row mx-auto text-center mx-auto">
+                <a href="{% url 'index' %}">
+                    <img class="card col-3 mx-auto" src="https://i.postimg.cc/13KdM1By/gaby-yerden-unsplash.jpg" style="width: 65%;">
+                </a>
+                <a href="{% url 'index' %}">
+                <img class="card col-3 mx-auto" src="https://i.postimg.cc/bvbkNhv1/frames-for-your-heart-unsplash.jpg" style="width: 65%;">
+                </a>
+                <a href="{% url 'index' %}">
+                <img class="card col-3 mx-auto" src="https://i.postimg.cc/14xR5f3Q/no-revisions-unsplash.jpg" style="width: 65%;">
+                </a>
+                <div class="container-fluid col-3">
+                    <h3>Explore Drink Favorites!</h3>
+                </div>
+            </div>
+        <!-- End center div -->
+        </div>
+        <!-- Space div -->
+        <div class="" style="height: 25px;"></div>
+        <!-- Bottom container div -->
+        <div class="card home container border-none bg-dark p-4">
+            <div class="d-flex flex-row justify-content-space-between">
+                <div class="p-2">
+                    <h6 class="justify-content-center">Dive into our collection of delicious drinks,
+                    fit for every possible shindig under the sun!</h6>
+                </div>
+                <div class="col-6">
+                    <form class="d-flex btn" role="search" method="GET" action="{% url 'search' %}">
+                        {% csrf_token %} 
+                        <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+                        <button class="button btn btn-outline-info" type="submit">Search</button>
+                    </form>
+                </div>
+                </div> 
+        <!-- End bottom div -->
+        </div>
+    </div>    
 </body>
 {% endblock %}

@@ -142,19 +142,21 @@ def user_drinks(request):
     drinks = Drink.objects.filter(user=request.user)
     return render(request, 'user/index.html', { 'drinks': drinks })
 
-# class SearchView(ListView):
-#     # Pulls from the drink model
-#     model = Drink
-#     template_name = 'search.html'
-#     context_object_name = 'all_search_results'
+class SearchView(ListView):
+    # Pulls from the drink model
+    model = Drink
+    template_name = 'search.html'
+    context_object_name = 'all_search_results'
 
-#     def get_queryset(self):
-#         result = super(SearchView, self).get_queryset()
-#         query = self.request.GET.get('search')
-#         if query: # If there's something in there worth filtering
-#             #filter it in here
-#             postresult = Drink.objects.filter(name__contains=query) # I changed this from title to name from the stackoverflow article because I believe it's calling for the field, not specific syntax.
-#             result = postresult
-#         else:
-#             result = None
-#         return result
+    def get_queryset(self):
+        # result = super(SearchView, self).get_queryset()
+        query = self.request.GET.get('search')
+        if query: # If there's something in there worth filtering
+            #filter it in here
+            queryset = Drink.objects.filter(name__icontains=query) # I changed this from title to name from the stackoverflow article because I believe it's calling for the field, not specific syntax.
+            # result = postresult
+        else:
+            queryset = Drink.objects.none()
+        return queryset
+    
+

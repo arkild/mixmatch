@@ -24,5 +24,5 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('user/index/', views.user_drinks, name="user_index"),
     #Search Path
-    # path('results/', views.SearchView.as_view(), name='search'),
+    path('results/', views.SearchView.as_view(), name='search'),
 ]
