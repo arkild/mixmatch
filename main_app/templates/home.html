@@ -21,17 +21,17 @@
         <!-- Center container div -->
         <div class="card home border-none bg-dark p-4">
             <div class="d-flex flex-row mx-auto text-center mx-auto">
-                <a href="{% url 'index' %}">
+                <a href="{% url 'details' 6 %}">
                     <img class="card col-3 mx-auto" src="https://i.postimg.cc/13KdM1By/gaby-yerden-unsplash.jpg" style="width: 65%;">
                 </a>
-                <a href="{% url 'index' %}">
+                <a href="{% url 'details' 12 %}">
                 <img class="card col-3 mx-auto" src="https://i.postimg.cc/bvbkNhv1/frames-for-your-heart-unsplash.jpg" style="width: 65%;">
                 </a>
-                <a href="{% url 'index' %}">
+                <a href="{% url 'details' 25 %}">
                 <img class="card col-3 mx-auto" src="https://i.postimg.cc/14xR5f3Q/no-revisions-unsplash.jpg" style="width: 65%;">
                 </a>
                 <div class="container-fluid col-3">
-                    <h3>Explore Drink Favorites!</h3>
+                    <h5>Explore Favorites</h5>
                 </div>
             </div>
         <!-- End center div -->
@@ -45,11 +45,11 @@
                     <h6 class="justify-content-center">Dive into our collection of delicious drinks,
                     fit for every possible shindig under the sun!</h6>
                 </div>
-                <div class="col-6">
-                    <form class="d-flex btn" role="search" method="GET" action="{% url 'search' %}">
+                <div class="col-2 ml-auto">
+                    <form method="POST" action="{% url 'search' %}">
                         {% csrf_token %} 
-                        <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
-                        <button class="button btn btn-outline-info" type="submit">Search</button>
+                        {{ form.as_p }}
+                        <input type="submit" class="ml-auto btn btn-outline-info btn-sm"value="Search">
                     </form>
                 </div>
                 </div> 

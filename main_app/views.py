@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.list import ListView
+# from django.views.generic.list import ListView
+
+
+# Import for search
+from django.views.generic import FormView
+from .forms import SearchForm
 
 # Make sure you import Drink
 from .models import Drink, Review, Photo
@@ -142,21 +147,36 @@ def user_drinks(request):
     drinks = Drink.objects.filter(user=request.user)
     return render(request, 'user/index.html', { 'drinks': drinks })
 
-class SearchView(ListView):
-    # Pulls from the drink model
-    model = Drink
-    template_name = 'search.html'
-    context_object_name = 'all_search_results'
+# class SearchView(ListView):
+#     # Pulls from the drink model
+#     model = Drink
+#     template_name = 'search.html'
+#     context_object_name = 'all_search_results'
 
-    def get_queryset(self):
-        # result = super(SearchView, self).get_queryset()
-        query = self.request.GET.get('search')
-        if query: # If there's something in there worth filtering
-            #filter it in here
-            queryset = Drink.objects.filter(name__icontains=query) # I changed this from title to name from the stackoverflow article because I believe it's calling for the field, not specific syntax.
-            # result = postresult
-        else:
-            queryset = Drink.objects.none()
-        return queryset
+#     def get_queryset(self):
+#         # result = super(SearchView, self).get_queryset()
+#         query = self.request.GET.get('search')
+#         if query: # If there's something in there worth filtering
+#             #filter it in here
+#             queryset = Drink.objects.filter(name__icontains=query) # I changed this from title to name from the stackoverflow article because I believe it's calling for the field, not specific syntax.
+#             # result = postresult
+#         else:
+#             queryset = Drink.objects.none()
+#         return queryset
+
+# Worked with Mike Bocon, General Assembly office hours to get assistance with search view 
+class SearchView(FormView):
+    template_name = 'search.html'
+    form_class = SearchForm
     
+    def form_valid(self, form):
+        query = form.cleaned_data['query']
+        # Changed filter to ingredients vs name
+        self.results = Drink.objects.filter(ingredients__icontains=query)
+        return self.render_to_response(self.get_context_data(form=form))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['results'] = getattr(self, 'results', [])
+        return context  
 

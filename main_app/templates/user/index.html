@@ -2,20 +2,20 @@
 
 {% block content %}
 <!-- Photo, Olena Bohovyk, unsplash -->
-<body class="vh-100" style="background-image: url('https://i.postimg.cc/XYkhKCNX/olena-bohovyk-Jj-GLEN7-T8x-I-unsplash.jpg'); background-size: cover; background-position: fixed;">
-    <h4 class="">{{ user.name }} Drinks</h4>
+<body class="vh-100" style="background-image: url('https://i.postimg.cc/XYkhKCNX/olena-bohovyk-Jj-GLEN7-T8x-I-unsplash.jpg'); background-size: cover; background-attachment: fixed;">
+    <h4 class="">My Drinks</h4>
 
     <div class="row">
         {% if user.is_authenticated %}
         {% for drink in drinks %}
         <!-- Adding CSS to wrap the content. Source Scott Draper, Pokedex project -->
         <!-- Additional source for wraping flex content: https://stackoverflow.com/questions/42893235/enclosing-for-loop-in-django-around-bootstrap-html-tags -->
-        <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem;">
+        <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem; object-fit: cover;">
             <div class="">
             {% for image in drink.image_set.all %}    
-                <img class="card-img-top img-responsive" src="{{ drink.image.url }}" width="" height="">
+                <img class="card card-img-top img-responsive" src="{{ drink.image.url }}" width="" height="">
             {% empty %}
-                <div class="card-img-top justify-text-center bg-light" style="height: 16rem; width: 16rem;">No Image Uploaded</div>
+                <div class="card card-img-top img-responsive cover bg-light" style="height: 14rem; width: 14rem;">No Image Uploaded</div>
             {% endfor %}  
                 <div class="crdTitle">
                     <h4 class="card-title">{{ drink.name }}</h4>
