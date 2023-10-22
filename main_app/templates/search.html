@@ -1,19 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Photo, Delightin Dee, unsplash -->
+<body class="vh-100" style="background-image: url('https://i.postimg.cc/rwzcrY9Q/delightin-dee-JNbq-Z3ws0-Ag-unsplash.jpg'); background-size: cover; background-position: fixed;">
+    <br><br>
+    <div class="card home">
+        <h4 class="">Drink Results</h4>
+        <br>
+        <div class="row">
+            <form method="POST" action="{% url 'search' %}">
+            {% csrf_token %} 
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" value="Search">
+            </form>
+            {% if results %}
+            <ul>
+            {% for drink in results %}
+            <br><br>
+            <div class="card dr-index m-auto col-sm-12 col-md-6 col-lg-4 align-center border p-4" style="width: 18rem; object-fit: cover;">
+                <div class="card bg-light p-2 black-text">
+                    {% for photo in drink.photo_set.all %}
+                    <img class="card card-img-top img-responsive cover" src="{{photo.url}}" object-fit: cover;>
+                    {% empty %}
+                    <div class="card card-img-top img-responsive cover bg-light" style="height: 14rem; width: 14rem">No Photos Uploaded</div>
+                    {% endfor %} 
+                    <div class="crdTitle text-dark">
+                        <h4 class="card-title">{{ drink.name }}</h4>
+                    </div>
 
-<body class="">
-<br><br>
-    <h4 class="">Search Results</h4>
-    <br>
-    <div class="row">
-        <ul>
-            {% for result in all_search_results %}
-                <li>{{ result.name }}</li>
-            {% empty %}
-                <li>No results found.</li>
+                    <p class="card-text text-secondary">Category: {{ drink.category }}</p>
+                </div>
+                <br>
+                <div class="button">
+                    <a href="{% url 'details' drink.id %}" type="button" class="btn btn-outline-info" style="--bs-btn-padding-y: .25rem; --bs-btn-font-size: .75rem;">Detail</a>
+                </div>
+            </div>
             {% endfor %}
-        </ul>
+            </ul>
+        {% else %}
+            <p>No results found</p>
+        {% endif %}
+        </div>
     </div>
-</body>
+  </body>
 {% endblock %}
