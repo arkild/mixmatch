@@ -22,11 +22,18 @@ This is a collaborative 3-person group project involving the development of a fu
 | /drinks/drinks_id                       | Destroy    | Delete    | Delete      | main_app/details.html        | **YES**       | **YES**     |
 | /registration/login                     | N/A        | N/A       | N/A         | registration/login.html      | **YES**       | **YES**     |
 | /accounts/signup                        | N/A        | N/A       | N/A         | registration/signup.html     | **YES**       | **YES**     |
-| /user/index (tentative name)            | N/A        | N/A       | N/A         | user/index.html              | No            | No          |
+| /user/index (tentative name)            | Show       | Get       | Read        | user/index.html              | **YES**       | **YES**     |
 
 ## Screenshots
+### Desktop View
+![image](https://github.com/arkild/mixmatch/assets/141771685/c9487f6a-94ad-4c20-b15b-7cafa9e8377c)
+![image](https://github.com/arkild/mixmatch/assets/141771685/a95b2e92-7fe3-487a-9d70-b7edf2b8faf6)
 
-(Once our project is completed enough, we can put some screenshots of our app here)
+### Mobile View
+![image](https://github.com/arkild/mixmatch/assets/141771685/65242f03-3c91-4a9e-b3ee-090ae9aba380)
+![image](https://github.com/arkild/mixmatch/assets/141771685/1ff8f451-ce1c-4fc0-814f-74ee4d0a8d5d)
+
+
 
 ## List of technologies used
 - HTML
@@ -43,4 +50,8 @@ Our project can be accessed by clicking [this link.](https://mixmatch-e776a4b935
 
 ## Upcoming Future Enhancements
 
-I will also fill this in with things we didn't finish by Friday. I don't expect us to do any heavy work on this over the weekend so I can have a pretty good idea of what stretch goals weren't done by then.
+Some of the things we will be pursuing in the future:
+- Binding the ability to add/delete drinks and add/delete reviews to only the users who create them. As of right now, the site's drinks and reviews can be edit and deleted by anyone, but the edit/delete links are only available on the user's own drink listing as an alternative to this issue.
+- setting up models for ingredients, glasses, and categories so that the options to add more to the lists can be done through an administrator rather than through hard-coding, as the glasses and categories are currently set for our dropdown on `models.py`.
+- create a page where the user can view a list of drinks from the database that match the ingredients that they put on their list.
+- adding a video embed option for people who create their custom drinks to show a video tutorial on how to make the drink.
