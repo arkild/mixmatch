@@ -23,6 +23,7 @@ This is a collaborative 3-person group project involving the development of a fu
 | /registration/login                     | N/A        | N/A       | N/A         | registration/login.html      | **YES**       | **YES**     |
 | /accounts/signup                        | N/A        | N/A       | N/A         | registration/signup.html     | **YES**       | **YES**     |
 | /user/index (tentative name)            | Show       | Get       | Read        | user/index.html              | **YES**       | **YES**     |
+| /search                                 | Show       | Get       | Read        | search.html                  | **YES**       | **YES**     |
 
 ## Screenshots
 ### Desktop View
